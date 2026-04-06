@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 1 - Props no React</title>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        .red { color: #FF1F1F; }
+        .yelow { color: #ECFF1F; }
+        .black { color: #0A0600; }
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        
+        const Conteudo = ({ produto, preco, estoque }) => {
+            return (
+                <div className="card">
+                    <h1 className="red">Produto: {produto}</h1>
+                    <p className="yelow">Preço: R$ {preco.toFixed(2)}</p>
+                    <p className="black">Quantidade em estoque: {estoque}</p>
+                </div>
+            );
+        }
+
+        const ExibirNaPagina = () => {
+            return (
+                <React.Fragment>
+                    <Conteudo
+                        produto="Banana" 
+                        preco={5.50} 
+                        estoque={100} 
+                    />
+                    
+                    <Conteudo
+                        produto="Maçã" 
+                        preco={8.90} 
+                        estoque={50} 
+                    />
+                    
+                    <Conteudo
+                        produto="Uva" 
+                        preco={12.00} 
+                        estoque={30} 
+                    />
+                </React.Fragment>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ExibirNaPagina />);
+        
+        /* Segui o que foi pedido e fui executando passo a passo para não ter erros, utilizei ! e apertei enter para gerar o html,
+        com isso adicionei os links para importação das bibliotecas react, reactDOM e babel, adicionei um título á página também.
+        Após isso fiz as classes de cores e adicionei estilos ao body para facilitar a visuallização. Parti para a execução da função e fiz como foi pedido
+        uma arrow function com as props produto, preco e estoque, fazendo ela retornar o titulo como h1, sendo o nome do produto, e o preco e estoque como p,
+        adicionando as cores as respectivas tags utilizando o className="" e os textos fixos em cada tag.
+        Depois criei uma nova arrow function para fazer a exibição na página do conteúdo, puxando dentro dela o react.fragment, e colocando 3 componentes que puxam
+        a função anterior, dentro dos componentes alterei o valor das props como foi pedido, após isso renderizei o conteúdo completo criando uma constante root
+        que utilza o reacDOM para criar o elemento e após isso renderizar na página usando root.render(<ExibirNaPagina />)
+        */
+    </script>
+</body>
+</html>
