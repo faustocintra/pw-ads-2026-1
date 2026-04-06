@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .azul {
+      color: blue;
+    }
+
+    .vermelho {
+      color: red;
+    }
+  </style>
+
+</head>
+<body>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    const Item = ({ produto, preco, estoque }) => {
+      return (
+        <>
+          {/* Primeiro parágrafo - azul */}
+          <p className="azul">
+            Produto: {produto}
+          </p>
+
+          {/* Segundo parágrafo - azul */}
+          <p className="azul">
+            Preço: {preco}
+          </p>
+
+          {/* Terceiro parágrafo - vermelho */}
+          <p className="vermelho">
+            Estoque: {estoque}
+          </p>
+        </>
+      )
+    }
+
+    const container =
+      <Item 
+        produto="1 par de tênis Asics"
+        preco="R$ 299,90"
+        estoque="A quantidade em estoque é de 10 unidades."
+      />
+
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(container)
+
+  </script>
+
+</body>
+</html>
