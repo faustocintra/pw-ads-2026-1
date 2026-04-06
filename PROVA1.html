@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício React - Produtos</title>
+
+    <style>
+        .azul { color: blue; }
+        .vermelho { color: red; }
+        .verde { color: green; }
+    </style>  
+</head>
+
+<body>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const Produto = ({ produto, preco, estoque }) => {
+            return (
+                <>
+                    <h1 className="azul">{produto}</h1>         
+                    <p className="vermelho">R$ {preco.toFixed(2)}</p>                    
+                    <p className="verde">Quantidade em estoque: {estoque}</p>
+                </>
+            );
+        };
+
+        const container = (
+            <>
+                <Produto produto="Notebook Gamer" preco={4500.00} estoque={5} />
+                <Produto produto="Smartphone" preco={1999.90} estoque={15} />
+                <Produto produto="Mouse sem fio" preco={120.00} estoque={30} />
+            </>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(container); 
+
+        /* O problema foi separado em sessões antes de ser resolvido, para facilitar a compreensão.
+             Primeiro passo foi a criação do HTML utilizando o comando "!" após isso foi importado dos exercicios anteriores os links a div ROOT
+             e também o text/babel. 
+             Criamos então a style para estilizar os elementos do componente.
+             Em seguida, criamos o componente Produto, que recebe as props produto, preco e estoque
+             e retorna um fragment contendo um título e dois parágrafos, cada um com uma classe de estilo diferente.
+             Já fora da função criamos o componente container usando FRAGMENT e o redenrizamos usando o comando root.render(container); */
+
+    </script>          
+        </body>
+        </html>
+
+
