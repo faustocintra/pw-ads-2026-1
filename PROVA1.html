@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*
+      3. Crie três classes de estilos que alterem a cor do texto, sendo cada um com uma cor
+      diferente. Use nomes de cores listados em https://htmlcolorcodes.com/color-names.
+    */
+    .estilo-produto {
+      color: MediumVioletRed;
+    }
+    .estilo-preco {
+      color: Olive;
+    }
+    .estilo-estoque {
+      color: MediumSlateBlue;
+    }
+  </style>
+</head>
+<body>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    /*
+      4. Declare uma função de componente React em formato arrow function, que receba as
+      seguintes props personalizadas: produto, preco e estoque.
+      5. Dentro da função, retorne um fragment contendo, dentro dele:
+      a) Um elemento h1, estilizado com a primeira classe declarada no item 3, exibindo,
+      dentro dela, o valor da prop produto;
+      b) Um elemento p, estilizado com a segunda classe definida no item 3, contendo o texto
+      fixo “R$” seguido pelo valor da prop preco formatado com .toFixed(2).
+      c) Um outro elemento p, estilizado com a terceira classe definida no item 3, contendo o
+      texto fixo “Quantidade em estoque:” seguido pelo valor da prop estoque.
+    */
+    const Item = ({produto, preco, estoque}) => {
+      return <>
+        <h1 className="estilo-produto"> {produto} </h1>
+        <p className="estilo-preco">Preço: R$ {preco.toFixed(2)}</p>
+        <p className="estilo-estoque">Quantidade em estoque: {estoque}</p>
+      </>
+    }
+
+    /*
+      6. Fora da função, crie um container usando fragment e, dentro dele, coloque três
+      componentes criados a partir da função de componente, usando a sintaxe JSX. Cada
+      componente deve ter valores de props diferentes uns dos outros.
+    */
+    const container = <>
+      <Item produto="Óleo de soja" preco={7.58} estoque={75} />
+      <Item produto="Água sanitária" preco={4.18} estoque={120} />
+      <Item produto="Vassoura de piaçava" preco={32.45} estoque={7} />
+    </>
+
+    /*
+      7. Escreva o código necessário para renderizar o container na página.
+    */
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(container)
+
+    /*
+      8. Logo abaixo (dentro) da tag script, escreva um comentário explicando em detalhes o
+      raciocínio utilizado na resolução da prova.
+
+      O COMENTÁRIO DEVERIA TER SIDO COLOCADO AQUI
+    */
+
+  </script>
+  
+</body>
+</html>
