@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo da área de uma elipse com useState</title>
+</head>
+<body>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function FormAreaElipse() {
+      /*
+        1. Criação das variáveis de estado para armazenar o que o usuário digita
+      */
+      const [raioMaior, setRaioMaior] = React.useState('')
+      const [raioMenor, setRaioMenor] = React.useState('')
+
+      /*
+        2. ESTADO DERIVADO
+        Calculado automaticamente a partir de raioMaior e raioMenor
+        toda vez que o componente é re-renderizado.
+      */
+      let areaFormatada = ''
+      
+      // Só calcula a área se os dois estados tiverem valores preenchidos
+      if (raioMaior && raioMenor) {
+        const area = Number(raioMaior) * Number(raioMenor) * Math.PI
+        areaFormatada = 'Área: ' + area.toLocaleString('pt-br', { 
+          minimumFractionDigits: 4, 
+          maximumFractionDigits: 4 
+        })
+      }
+
+      return (
+        <>
+          <h1>Cálculo da área de uma elipse</h1>
+          <form onSubmit={e => e.preventDefault()}>
+            <div>
+              <label>
+                <span>Medida do raio maior:</span><br/>
+                <input 
+                  type="number" 
+                  value={raioMaior}
+                  onChange={event => setRaioMaior(event.target.value)} 
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span>Medida do raio menor:</span><br/>
+                <input 
+                  type="number" 
+                  value={raioMenor}
+                  onChange={event => setRaioMenor(event.target.value)} 
+                />
+              </label>
+            </div>
+            
+            {/* 3. Renderizando o estado derivado diretamente no JSX */}
+            <div style={{ marginTop: '15px', fontWeight: 'bold' }}>
+              {areaFormatada}
+            </div>
+          </form>
+        </>
+      )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(<FormAreaElipse />)
+  </script>
+  
+</body>
+</html>

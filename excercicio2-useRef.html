@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo da área de uma elipse em React</title>
+</head>
+<body>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function FormAreaElipse() {
+      // Criando as referências para substituir os IDs
+      const raioMaiorRef = React.useRef()
+      const raioMenorRef = React.useRef()
+      const resultadoRef = React.useRef()
+
+      function handleChange() {
+        // Acessando os valores digitados nos inputs
+        const raioMaior = raioMaiorRef.current.value
+        const raioMenor = raioMenorRef.current.value
+
+        if (raioMaior && raioMenor) {
+          const area = Number(raioMaior) * Number(raioMenor) * Math.PI
+          
+          // Exibe o resultado formatado
+          resultadoRef.current.textContent = 'Área: ' + area.toLocaleString('pt-br', { 
+            minimumFractionDigits: 4, 
+            maximumFractionDigits: 4 
+          })
+        } else {
+          // Limpa a tela se algum campo estiver vazio
+          resultadoRef.current.textContent = '' 
+        }
+      }
+
+      return (
+        <>
+          <h1>Cálculo da área de uma elipse</h1>
+          <form onSubmit={(e) => e.preventDefault()}>
+            <div>
+              <label>
+                <span>Medida do raio maior:</span><br/>
+                <input 
+                  type="number" 
+                  ref={raioMaiorRef} 
+                  onChange={handleChange} 
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span>Medida do raio menor:</span><br/>
+                <input 
+                  type="number" 
+                  ref={raioMenorRef} 
+                  onChange={handleChange} 
+                />
+              </label>
+            </div>
+            <div id="resultado" ref={resultadoRef} style={{ marginTop: '15px', fontWeight: 'bold' }}></div>
+          </form>
+        </>
+      )
+    }
+
+    // Inicializando o React na div com id "root"
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(<FormAreaElipse />)
+  </script>
+  
+</body>
+</html>
