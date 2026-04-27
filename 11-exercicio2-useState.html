@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo da área de uma elipse — useState</title>
+</head>
+<body>
+ 
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+ 
+  <div id="root"></div>
+ 
+  <script type="text/babel">
+    function Elipse() {
+      /*
+        Criação de variáveis de estado com React.useState()
+      */
+      const [raioMaior, setRaioMaior] = React.useState('')
+      const [raioMenor, setRaioMenor] = React.useState('')
+ 
+      /*
+        ESTADO DERIVADO
+        É uma variável comum cujo valor pode ser calculado a partir
+        de uma ou mais variáveis de estado
+      */
+      const area = Number(raioMaior) * Number(raioMenor) * Math.PI
+ 
+      return <>
+        <h1>Cálculo da área de uma elipse — useState</h1>
+        <form>
+          <div>
+            <label>
+              <span>Medida do raio maior:</span><br />
+              <input
+                type="number"
+                onChange={event => setRaioMaior(event.target.value)}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              <span>Medida do raio menor:</span><br />
+              <input
+                type="number"
+                onChange={event => setRaioMenor(event.target.value)}
+              />
+            </label>
+          </div>
+          <div>
+            {raioMaior !== '' && raioMenor !== '' &&
+              'Área: ' + area.toLocaleString('pt-br', {
+                minimumFractionDigits: 4,
+                maximumFractionDigits: 4
+              })
+            }
+          </div>
+          {/* Só exibe o resultado quando os dois campos estiverem preenchidos */}
+        </form>
+      </>
+    }
+ 
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(<Elipse />)
+  </script>
+ 
+</body>
+</html>
+ 
