@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--A div "root" será usada posteriormente pelo React-->
+    <div id="root"></div>
+
+    <script>
+        /*
+        DOM significa "Document Object Model".
+        O termo se refere á forma como a linguagem JavaScript
+        "enxerga" os elementos de uma página HTML.
+        Quando usamos JS para criar novos elementos em uma página,
+        alterá-los ou mesmo exclui-los, diz-se que estamos "manipulando o DOM"
+        */
+       //criando um novo parágrafo na página usando JS
+       const parag = document.createElement('p')
+       parag.textContent = 'Este parágrafo foi criado com JS.'
+    
+       //captura(acessa) o elemento correspondente à div "root"
+       const root = document.getElementById('root')
+
+       //Faz com que o novo parágrafo seja "adotado" pela div "root"
+       root.appendChild(parag)
+
+       // Criando uma nova div e ajustando os seus atributos
+       const novaDiv = document.createElement('div')
+       novaDiv.textContent = 'DIV criada com JavaScript.'
+       novaDiv.style.border = '3px dotted green'
+       novaDiv.style.background = 'limegreen'
+       novaDiv.style.padding = '10px'
+       novaDiv.style.marginTop = '50px'
+       novaDiv.style.textAlign = 'center'
+       novaDiv.id = 'div-verde'
+
+       // Fazendo com que a div "root" "adote" novaDiv como filha
+       root.appendChild(novaDiv)
+    </script>
+</body>
+</html>
