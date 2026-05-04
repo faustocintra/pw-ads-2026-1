@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Um documento</title>
+  <style>
+   
+   .texto-cor1 {
+  color: peachpuff;
+}
+
+.texto-cor2 {
+  color: teal;
+}
+
+.texto-cor3 {
+  color: magenta;
+}
+  </style>
+</head>
+<body>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <div id="root">
+    <script type="text/babel">  
+      function cores() {
+        const textoVermelho = "Texto Vermelho";
+        const textoAzul = "Texto Azul";
+        const textoVerde = "Texto Verde";
+        return(
+          <div>
+            <h1 className="texto-cor1">Texto Vermelho</h1>
+            <h1 className="texto-cor2">Texto Azul</h1>
+            <h1 className="texto-cor3">Texto Verde</h1>
+          </div>
+        );
+      }
+
+      const Produto = ({ produto, preço, estoque }) => {
+        return (
+          <>
+            <h1 className="texto-cor1">{produto}</h1>
+            <div>
+              <p className="texto-cor2">Preço: R$ {preço.toFixed(2)}</p>
+              <p className="texto-cor3">Quantidade em estoque: {estoque}</p>
+            </div>
+          </>
+        );
+      }
+
+      const Conteiner = () => (
+        <>
+          <Produto produto="Notebook" preço={3000} estoque={10} />
+          <Produto produto="Smartphone" preço={1500} estoque={20} />
+          <Produto produto="Tablet" preço={2000} estoque={15} />
+        </>
+      );
+
+      ReactDOM.render(<cores />, document.getElementById('root'));
+      ReactDOM.render(<Conteiner />, document.getElementById('root'));
+
+      /*Usando como base o repertório que esta no github seguindo o link: https://github.com/faustocintra/pw-ads-2026-1/tree/main/fundamentos-js
+      foi colocado o primeiro início do código da última aula no qual a estrutura do html inicial está  tecnicamente pronta, o que faltava apenas era o trecho com o código
+      em react, no qual usaando como ideia as cores que já estavam no repositório, fora criada a função cores que vai ler dentro da tag styles fora do lib react nesse caso, no HTML
+      as classes foram definidas para cada cor, e dentro da função cores, cada texto tem a sua respectiva classe, e depois foi criado o componente Produto que recebe as props produto,preço e estoque,
+      e retorna um JSX com o nome do produto, preço formatado usando o .toFixed(2) para que iguale as casas decimais,
+      e quantidade em estoque, e por fim foi criado o componente Conteiner que renderiza três produtos diferentes. O ReactDOM.render é usado para renderizar os componentes como está nomeado na prova
+      */
+     
+    </script>
+  </div>
+  
