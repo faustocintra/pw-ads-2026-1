@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .msg {
+      border-radius: 4px;
+      border: 2px solid red;
+      background-color: khaki;
+      padding: 10px;
+      font-family: Calibri, sans;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Scripts para carregar remotamente o React e o Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    /*
+      PROPS GENÉRICAS E PROPS PERSONALIZADAS
+
+      Uma função de componente em React pode receber dois tipos de props:
+      1) Props GENÉRICAS: são passadas por meio de um único objeto e
+         normalmente são aplicadas no componente por meio de espalhamento
+      2) Props PERSONALIZADAS: são passadas normalmente à função. Somente
+         as props nomeadas explicitamente são processadas dentro do componente
+    */
+
+    // Função de componente que recebe props GENÉRICAS
+    // function Mensagem(props) {
+    //   return <div className="msg" {...props} />
+    // }
+
+    // A mesma função acima, no formato ARROW FUNCTION
+    const Mensagem = props => <div className="msg" {...props} />
+
+    // Função de componente que recebe apenas props PERSONALIZADAS
+    const Aviso = ({id, children}) => <div className="msg" id={id} children={children} />
+
+    const propsMsg1 = {
+      id: 'msg1',
+      title: 'Primeira mensagem',
+      children: 'ATENÇÃO: chão escorregadio!',
+      propFicticia: 'teste',
+      x: 'y'
+    }
+
+    const container =
+      <>
+        {/* Um componente pode ser criado diretamente dentro do container */}
+        <Mensagem {...propsMsg1} />
+
+        {/* No componente Mensagem abaixo, todas as props serão recebidas e
+          processadas, uma vez que o componente recebe props GENÉRICAS */}
+        <Mensagem id="msg2" title="Segunda mensagem" teste="testando">
+          Doe sangue! Sangue é vida!
+        </Mensagem>
+
+        {/* Já no componente Aviso a seguir, apenas as props id e children
+          serão processadas, já que a apenas elas foram explicitamente
+          nomeadas no parâmetro da função (props PERSONALIZADAS). Todas as
+          demais props passadas serão ignoradas */}
+        <Aviso id="aviso1" title="Primeiro aviso" teste="testando">
+          Atravesse sempre na faixa de pedestres.
+        </Aviso>
+      </>
+
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(container)
+
+  </script>  
+</body>
+</html>
