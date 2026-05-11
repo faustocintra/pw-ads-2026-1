@@ -4,6 +4,7 @@ import HeaderBar from './ui/HeaderBar'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './ui/theme'
+import FooterBar from './ui/FooterBar'
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
       <ThemeProvider theme={theme}>
       <CssBaseline />
      <BrowserRouter>
-       <HeaderBar />
+      <HeaderBar />
+      <FooterBar />
      </BrowserRouter>
       </ThemeProvider>
    </>
