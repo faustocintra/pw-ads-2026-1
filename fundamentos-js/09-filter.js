@@ -32,4 +32,3 @@ console.log('Apenas frutas que terminam com a letra "r": ',
     /* o professor usou fru => fru.slice 'r' para encontrar a letra no final, mas achei melhor usar o endsWith() 
     que é mais claro e fácil de entender, o resultado é o mesmo */
 
-
