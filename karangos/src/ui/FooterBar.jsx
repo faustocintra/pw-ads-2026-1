@@ -27,7 +27,7 @@ return <>
 
       >
         
-        Desenvolvido e mantido com  <SentimentVeryDissatisfiedIcon sx={{ verticalAlign: 'text-bottom', fontSize: 'inherit' }}/> por <a href="mailto:samuelpssouza@gmail.com">Selamu</a>
+        Desenvolvido e mantido com  <SentimentVeryDissatisfiedIcon sx={{ verticalAlign: 'text-bottom', fontSize: 'inherit' }}/> por <a href="mailto:samuelpssouza@gmail.com">Samuel</a>
 
       </Typography>
     </Box>
