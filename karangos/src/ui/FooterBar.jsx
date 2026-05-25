@@ -23,7 +23,7 @@ return <>
        }}
        >
        Desenvolvido e mantido com <CoffeeIcon sx={{ verticalAlign: 'text-bottom', fontSize:
-         'inherit' }}/> por <a href="mailto:assueljandrade@gmail.com">Assuel J. Andrade</a>
+         'inherit' }}/> por <a href="mailto:codex@openai.com">Codex</a>
      </Typography>
     </Box>
   </>
