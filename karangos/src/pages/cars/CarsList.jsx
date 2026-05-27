@@ -1,14 +1,7 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box';
-import { DataGrid } from '@mui/x-data-grid';
-
-// 1. Configurações estáveis ficam FORA do componente para evitar recriação na memória
-const carsPromise = fetch('https://api.faustocintra.com.br/v2/cars')
-    .then(res => {
-        if (!res.ok) throw new Error('Erro ao buscar dados da API');
-        return res.json();
-    });
+import Box from '@mui/material/Box'
+import { DataGrid } from '@mui/x-data-grid'
 
 const columns = [
     {
@@ -58,8 +51,9 @@ const columns = [
         align: 'right',
         headerAlign: 'right',
         // Ajustado para o padrão desestruturado do MUI X mais recente ({ value })
-        valueFormatter: ({ value }) => {
-            if (value) {
+        valueFormatter: (params) => {
+            const value = params?.value
+            if (value != null) {
                 return value.toLocaleString('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'
@@ -72,8 +66,9 @@ const columns = [
         field: 'selling_date',
         headerName: 'Data da Venda',
         width: 140,
-        valueFormatter: ({ value }) => {
-            if (value) {
+        valueFormatter: (params) => {
+            const value = params?.value
+            if (value != null) {
                 const date = new Date(value)
                 return date.toLocaleDateString('pt-BR')
             }
@@ -83,8 +78,48 @@ const columns = [
 ];
 
 export default function CarsList() {
-    // 2. Consome a Promise estável global
-    const cars = React.use(carsPromise)
+    const [cars, setCars] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+
+    useEffect(() => {
+        let active = true
+
+        async function loadCars() {
+            try {
+                const res = await fetch('https://api.faustocintra.com.br/v2/cars')
+                if (!res.ok) {
+                    throw new Error('Erro ao buscar dados da API')
+                }
+
+                const data = await res.json()
+                if (active) {
+                    setCars(data)
+                }
+            } catch (err) {
+                if (active) {
+                    setError(err)
+                }
+            } finally {
+                if (active) {
+                    setLoading(false)
+                }
+            }
+        }
+
+        loadCars()
+        return () => {
+            active = false
+        }
+    }, [])
+
+    if (error) {
+        return (
+            <Typography color="error" variant="h6" sx={{ mt: 4 }}>
+                Erro: {error.message}
+            </Typography>
+        )
+    }
 
     return (
         <>
@@ -96,8 +131,8 @@ export default function CarsList() {
                 <DataGrid
                     rows={cars}
                     columns={columns}
-                    // Caso sua API use outra chave primária (como _id), descomente a linha abaixo:
-                    // getRowId={(row) => row._id} 
+                    getRowId={(row) => row.id ?? row._id ?? row.plates ?? `${row.brand}_${row.model}_${row.year_manufacture}`}
+                    loading={loading}
                     initialState={{
                         pagination: {
                             paginationModel: {

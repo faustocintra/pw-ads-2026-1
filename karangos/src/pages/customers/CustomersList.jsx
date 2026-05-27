@@ -1,5 +1,5 @@
 
-import React from 'react'
+import { use } from 'react'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
@@ -11,7 +11,7 @@ const customersPromise = fetch('https://api.faustocintra.com.br/v2/customers')
 
 export default function CustomersList() {
 
-    const customers = React.use(customersPromise)
+    const customers = use(customersPromise)
 
     const columns = [
    {
