@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercicio 11 - useState</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    function Exercicio11UseState() {
+      const [raioMaior, setRaioMaior] = useState('');
+      const [raioMenor, setRaioMenor] = useState('');
+
+      const calcularArea = () => {
+        const valorMaior = Number(raioMaior);
+        const valorMenor = Number(raioMenor);
+        
+        if (valorMaior > 0 && valorMenor > 0) {
+          return valorMaior * valorMenor * Math.PI;
+        }
+        return 0;
+      };
+
+      const area = calcularArea();
+
+      return (
+        <div>
+          <h1>Cálculo da área de uma elipse (useState)</h1>
+          <form onSubmit={(e) => e.preventDefault()}>
+            <div>
+              <label>
+                <span>Medida do raio maior:</span><br />
+                <input 
+                  type="number" 
+                  value={raioMaior} 
+                  onChange={(e) => setRaioMaior(e.target.value)} 
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span>Medida do raio menor:</span><br />
+                <input 
+                  type="number" 
+                  value={raioMenor} 
+                  onChange={(e) => setRaioMenor(e.target.value)} 
+                />
+              </label>
+            </div>
+            <div id="resultado">
+              {area > 0 && (
+                <p>Área: {area.toLocaleString('pt-BR', { minimumFractionDigits: 4, maximumFractionDigits: 4 })}</p>
+              )}
+            </div>
+          </form>
+        </div>
+      );
+    }
+
+    // Iniciando o React na div "root"
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<Exercicio11UseState />);
+  </script>
+</body>
+</html>
