@@ -1,74 +1,89 @@
-//encontrando o menor e o maior numero em uma série
-let minimo = Math.min(2, -5, 4 ,0, 11 ,-1)
-let maximo = Math.max(2, -5, 4 ,0, 11 ,-1)
-console.log('Valores mínimos e máximo determinados a partir de valores avulsos: ')
+// Encontrando o menor e o maior números em uma série
+let minimo = Math.min(2, -5, 4, 0, 11, -1)
+let maximo = Math.max(2, -5, 4, 0, 11, -1)
+
+console.log('Valores mínimo e máximo determinados a partir de valores avulsos:')
 console.log({minimo, maximo})
 
 console.log('-'.repeat(80))
 
-//e se os números estivessem em um vetor?
-const nums = [2, -5, 4 ,0, 11 ,-1]
+// E se os números estivessem em um vetor?
+const nums = [2, -5, 4, 0, 11, -1]
 
+/*
+  Math.min() e Math.max() não conseguem trabalhar quando
+  os números estão em um vetor
+*/
 minimo = Math.min(nums)
 maximo = Math.max(nums)
-console.log('Valores mínimos e máximo determinados a partir de um vetor: ')
-console.log({minimo, maximo})       
 
-console.log('-'.repeat(80))
-/* a sintaxe de espanhamento (spreading), representada por ... antes do nome de uma variavel que contem um vetor ou um obnjeto, é capaz de
-'desempacotar' um vetor ou objeto em uma série de valores avulsos */
-
-minimo = Math.min(...nums)
-maximo = Math.max(...nums)
-console.log('Valores calculados após aplicação do espalhamento no vetor: ')
+console.log('Valores mínimo e máximo determinados a partir de um vetor:')
 console.log({minimo, maximo})
 
-/* outros usos para a sintaxe de espallhamento */
+console.log('-'.repeat(80))
+
+/*
+  A sintaxe de espalhamento (spreading), representada por ... antes
+  do nome de uma variável que contém um vetor ou um objeto, é capaz
+  de "desempacotar" um vetor ou objeto em uma série de valores avulsos
+*/
+minimo = Math.min(...nums)
+maximo = Math.max(...nums)
+
+console.log('Valores calculados após aplicação do espalhamento no vetor:')
+console.log({minimo, maximo})
+
+/* OUTROS USOS PARA A SINTAXE DE ESPALHAMENTO */
+
 const carro1 = {
-    modelo : 'Fiorino',
-    marca :'Fiat',
-    ano : '1984',
-    cor : 'bege',
+  modelo: 'Fiorino',
+  marca: 'Fiat',
+  ano: 1984,
+  cor: 'bege'
 }
 
-//'Copiando' carro 1 para carro 2
-//const carro2 = carro1 essa nao funcionaaa
+// "Copiando" carro1 para carro2
+// const carro2 = carro1 // NÃO FUNCIONA!
 
-/*NÃO FUNCIONA COMO DEVERIA, POIS CARRO2 APONTA PARA O MESMO OBJETO QUE CARRO1, ENTÃO QUALQUER ALTERAÇÃO
- EM CARRO2 VAI ALTERAR CARRO1 TAMBÉM
- para criar uma cópia  real de um opbjeto 
-e não uma nova referencia a ele), podemos usar a sintaxe de espalhamento. Ela "desmonta" o objeto original e em seguida, remonta, mas em uma nova posição de memoria. */
-//mudando o valor das propriedades de carro2
-const carro2 = {...carro1} //espalhando o objeto carro1 para criar um novo objeto carro2
-carro2.modelo = 'Fusca',
-carro2.marca = 'Volkswagen',
-carro2.ano = '1980',
-carro2.cor = 'azul'
+// Para criar uma cópia real de um objeto (e não uma nova referência
+// a ele), podemos usar a sintaxe de espalhamento. Ela "desmonta" o
+// objeto original e, em seguida, "remonta", mas em uma nova posição
+// de memória
+const carro2 = {...carro1}
+
+// Mudando o valor das propriedades da carro2
+carro2.modelo = 'Fusca'
+carro2.marca = 'Volkswagen'
+carro2.cor = 'preto'
+carro2.ano = 1969
 
 console.log('-'.repeat(80))
 
-//exebindo ambos os carros
+// Exibindo ambos os carros
 console.log({carro1, carro2})
 
+/*
+  PROBLEMA: juntar dois ou mais vetores em um terceiro vetor
+*/
+const frutas = ['maçã', 'banana', 'laranja', 'uva']
+const verduras = ['alface', 'couve', 'rúcula', 'acelga']
 
-const frutas = ['maça', 'banana', 'laranja']
-const verduras = ['alface', 'couve', 'espinafre']
+const hortifruti = [...frutas, ...verduras]
 
-const hortifruti = [...frutas, ...verduras] //espalhando os dois vetores para criar um novo vetor
-console.log('-'.repeat (80))
+console.log('-'.repeat(80))
 console.log({hortifruti})
 
-/* problema: declarar uma função capaz de receber um número arbitrario
-de parâmetro */
-// espalhamento começou recentemente
-function soma(... nums){
-    //nums é recebido dentro da função como um vetor
-    let resultado = 0
-    for(let n of nums) resultado += n
-    return resultado    
+/*
+  PROBLEMA: declarar uma função capaz de receber um número arbitrário
+  de parâmetros
+*/
+function soma(...nums) {
+  // nums é recebido dentro da função como um vetor
+  let resultado = 0
+  for(let n of nums) resultado += n
+  return resultado
 }
 
-
-console.log('-.repeat(80)')
-console.log(`Soma de 4 números: ${soma(1,2,4,4)}`)
+console.log('-'.repeat(80))
+console.log(`Soma de 4 números: ${soma(1, 2, 3, 4)}`)
 console.log(`Soma de 7 números: ${soma(11, 22, 33, 44, 55, 66, 77)}`)

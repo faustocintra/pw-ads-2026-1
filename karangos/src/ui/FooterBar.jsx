@@ -24,7 +24,7 @@ export default function FooterBar() {
          }
        }}
       >
-        Desenvolvido por Renata Saraiva Claudino e mantido com muito<CoffeeIcon sx={{ verticalAlign: 'text-bottom', fontSize: 'inherit' }} /> por <a href="mailto:professor@faustocintra.com.br">Prof. Fausto Cintra</a>
+        Desenvolvido e mantido com muito <CoffeeIcon sx={{ verticalAlign: 'text-bottom', fontSize: 'inherit' }} /> por <a href="mailto:saraiva.claudino@gmail.com">Renata Saraiva Claudino</a>
       </Typography>
     </Box>
   </>

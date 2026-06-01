@@ -27,3 +27,4 @@ console.log('<h1>FRUTAS ENCONTRADAS NO BRASIL</h1>')
 console.log('<ul>')
 for(const item of itensLista) console.log(item)
 console.log('</ul>')
+

@@ -1,59 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Prova 1</title>
-    <style>
-        .cor-titulo { color: #2c3e50; }
-        .cor-preco { color: #e67e22; }
-        .cor-estoque { color: #27ae60; }
-        
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*
+      3. Crie três classes de estilos que alterem a cor do texto, sendo cada um com uma cor
+      diferente. Use nomes de cores listados em https://htmlcolorcodes.com/color-names.
+    */
+    .estilo-produto {
+      color: MediumVioletRed;
+    }
+    .estilo-preco {
+      color: Olive;
+    }
+    .estilo-estoque {
+      color: MediumSlateBlue;
+    }
+  </style>
 </head>
 <body>
 
-    <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <div id="root"></div>
 
-    <script type="text/babel">
-        // Item 4: Arrow function com props: produto, preco e estoque
-        const ProdutoComponent = ({ produto, preco, estoque }) => (
-            // Retorno de um fragment (<>) conforme solicitado
-            <div className="card">
-                {/* Item 4.a: h1 com a primeira classe e prop produto */}
-                <h1 className="cor-titulo">{produto}</h1>
-                
-                {/* Item 4.b: p com a segunda classe, "R$" e preco.toFixed(2) */}
-                <p className="cor-preco">R$ {preco.toFixed(2)}</p>
-                
-                {/* Item 4.c: p com a terceira classe e "Estoque: " + prop estoque */}
-                <p className="cor-estoque">Quantidade em Estoque: {estoque}</p>
-            </div>
-        );
+  <script type="text/babel">
 
-        // Item 6: Container usando fragment com três componentes de valores diferentes
-        const Container = (
-            <>
-                <ProdutoComponent produto="Teclado Mecânico" preco={250.00} estoque={15} />
-                <ProdutoComponent produto="Mouse Gamer" preco={120.50} estoque={30} />
-                <ProdutoComponent produto="Monitor 144hz" preco={1100.99} estoque={5} />
-            </>
-        );
+    /*
+      4. Declare uma função de componente React em formato arrow function, que receba as
+      seguintes props personalizadas: produto, preco e estoque.
+      5. Dentro da função, retorne um fragment contendo, dentro dele:
+      a) Um elemento h1, estilizado com a primeira classe declarada no item 3, exibindo,
+      dentro dela, o valor da prop produto;
+      b) Um elemento p, estilizado com a segunda classe definida no item 3, contendo o texto
+      fixo “R$” seguido pelo valor da prop preco formatado com .toFixed(2).
+      c) Um outro elemento p, estilizado com a terceira classe definida no item 3, contendo o
+      texto fixo “Quantidade em estoque:” seguido pelo valor da prop estoque.
+    */
+    const Item = ({produto, preco, estoque}) => {
+      return <>
+        <h1 className="estilo-produto"> {produto} </h1>
+        <p className="estilo-preco">Preço: R$ {preco.toFixed(2)}</p>
+        <p className="estilo-estoque">Quantidade em estoque: {estoque}</p>
+      </>
+    }
 
-        // Item 7: Código para renderizar o container no elemento root
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(Container);
+    /*
+      6. Fora da função, crie um container usando fragment e, dentro dele, coloque três
+      componentes criados a partir da função de componente, usando a sintaxe JSX. Cada
+      componente deve ter valores de props diferentes uns dos outros.
+    */
+    const container = <>
+      <Item produto="Óleo de soja" preco={7.58} estoque={75} />
+      <Item produto="Água sanitária" preco={4.18} estoque={120} />
+      <Item produto="Vassoura de piaçava" preco={32.45} estoque={7} />
+    </>
 
-        /* Item 8: Explicação passo a passo da lógica:
-           - Passo 1: Definimos classes CSS para garantir que cada informação (nome, preço, estoque) tenha uma cor distinta.
-           - Passo 2: Criamos o componente 'ProdutoComponent' usando Arrow Function. Ele é um molde que recebe dados (props) e os encaixa no HTML.
-           - Passo 3: Usamos o método .toFixed(2) no preço para garantir que ele sempre exiba duas casas decimais, como um valor monetário real.
-           - Passo 4: Agrupamos três chamadas desse componente dentro de um Fragment. Cada chamada envia dados diferentes para as props, demonstrando a reutilização do componente.
-           - Passo 5: Utilizamos a biblioteca ReactDOM para "injetar" todo esse código dinâmico dentro da div 'root' do nosso HTML estático.
-        */
-    </script>
+    /*
+      7. Escreva o código necessário para renderizar o container na página.
+    */
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(container)
+
+    /*
+      8. Logo abaixo (dentro) da tag script, escreva um comentário explicando em detalhes o
+      raciocínio utilizado na resolução da prova.
+
+      O COMENTÁRIO DEVERIA TER SIDO COLOCADO AQUI
+    */
+
+  </script>
+  
 </body>
 </html>
