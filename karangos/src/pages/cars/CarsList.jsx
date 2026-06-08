@@ -5,9 +5,9 @@ import { DataGrid } from '@mui/x-data-grid';
 
 
 const carsPromise = fetch('https://api.faustocintra.com.br/v2/cars')
- .then(res => res.json())
+  .then(res => res.json())
 
- const columns = [
+const columns = [
    {
      field: 'id',
      headerName: 'Cód.',
@@ -72,29 +72,26 @@ const carsPromise = fetch('https://api.faustocintra.com.br/v2/cars')
 
 
 export default function CarsList() {
+  const cars = React.use(carsPromise)
 
-
- const cars = React.use(carsPromise)
-
-
- return <>
-   <Typography variant="h1" gutterBottom>
-     Listagem de veículos
-   </Typography>
-   <Box sx={{ height: 400, width: '100%' }}>
-    <DataGrid
-      rows={cars}
-      columns={columns}
-      initialState={{
-        pagination: {
-          paginationModel: {
-            pageSize: 5,
+  return <>
+    <Typography variant="h1" gutterBottom>
+      Listagem de veículos
+    </Typography>
+    <Box sx={{ height: 400, width: '100%' }}>
+      <DataGrid
+        rows={cars}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 5,
+            },
           },
-        },
-      }}
-      pageSizeOptions={[5]}
-      disableRowSelectionOnClick
-    />
-   </Box>
- </>
+        }}
+        pageSizeOptions={[5]}
+        disableRowSelectionOnClick
+      />
+    </Box>
+  </>
 }

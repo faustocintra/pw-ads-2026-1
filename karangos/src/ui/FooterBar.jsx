@@ -1,3 +1,4 @@
+import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import CoffeeIcon from '@mui/icons-material/Coffee';
@@ -22,7 +23,7 @@ return <>
          }
        }}
       >
-        Desenvolvido e mantido com <CoffeeIcon fontSize="small" /> por <a href="mailto:Leleonardolopes@gmail.com">Leonardo Lopes</a>
+        Desenvolvido e mantido com <CoffeeIcon fontSize="small" /> por <a href="mailto:lelelonardolopes@gmail.com">Leonardo Lopes dos Santos</a>
       </Typography>
       
     </Box>

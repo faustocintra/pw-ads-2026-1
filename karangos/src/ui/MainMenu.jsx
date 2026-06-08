@@ -79,6 +79,14 @@ export default function MainMenu() {
          Listagem de clientes
        </MenuItem>
 
+       <MenuItem
+         onClick={handleClose}
+         component={Link}
+         to="/about-author"
+       >
+         Sobre o autor
+       </MenuItem>
+
 
      </Menu>
    </div>
