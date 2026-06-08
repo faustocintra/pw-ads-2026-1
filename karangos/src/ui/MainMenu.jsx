@@ -62,6 +62,14 @@ export default function MainMenu() {
          Listagem de veículos
        </MenuItem>
 
+       <MenuItem
+         onClick={handleClose}
+         component={Link}
+         to="/prova"
+       >
+         Sobre o autor
+       </MenuItem>
+
 
 
 
