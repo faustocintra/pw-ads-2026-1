@@ -24,7 +24,7 @@ return <>
        }}
        >
        Desenvolvido e mantido com <CoffeeIcon sx={{ verticalAlign: 'text-bottom', fontSize:
-         'inherit' }} /> por <a href="mailto:rafaela.silva3@aluno.cps.sp.gov.br">Rafaela Lissa</a>
+         'inherit' }} /> por <a href="mailto:paraaplicativos259@gmail.com">Rafaela Lissa</a> - paraaplicativos259@gmail.com
      </Typography>
     </Box>
   </>   
