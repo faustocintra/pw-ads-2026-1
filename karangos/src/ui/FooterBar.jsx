@@ -25,7 +25,7 @@ return <>
        }}
      >
 
-       Desenvolvido e mantido com <CoffeeIcon sx={{ verticalAlign: 'text-bottom', fontSize: 'inherit' }} /> por <a href="mailto:seu e-mail">Wanderson</a>
+      Desenvolvido e mantido com <CoffeeIcon sx={{ verticalAlign: 'text-bottom', fontSize: 'inherit' }} /> por Wanderson Honorio (<a href="mailto:adswanderson@gmail.com">adswanderson@gmail.com</a>)
      </Typography>
     </Box>
   </>
