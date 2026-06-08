@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import minhaFoto from '../assets/minha-foto.svg';
+import autorFoto from '../assets/autor-foto.png';
 
 function NovoArquivo() {
   const [likes, setLikes] = useState(0);
@@ -20,7 +20,7 @@ function NovoArquivo() {
         <CardMedia
           component="img"
           height="180"
-          image={minhaFoto}
+          image={autorFoto}
           alt="Foto do autor"
         />
         <CardContent>
