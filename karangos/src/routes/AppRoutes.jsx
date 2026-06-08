@@ -1,13 +1,8 @@
-
 import { Routes, Route } from 'react-router-dom'
 
-
 import Homepage from '../pages/Homepage'
-
-
 import CarsList from '../pages/cars/CarsList'
 import CustomersList from '../pages/customers/CustomersList'
-
 
 export default function AppRoutes() {
  return <Routes>
@@ -19,4 +14,3 @@ export default function AppRoutes() {
   
  </Routes>
 }
-
