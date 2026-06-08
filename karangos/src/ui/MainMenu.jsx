@@ -5,7 +5,6 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 
-
 export default function MainMenu() {
  const id = React.useId();
  const buttonId = `${id}-button`;
@@ -79,4 +78,3 @@ export default function MainMenu() {
    </div>
  );
 }
-
