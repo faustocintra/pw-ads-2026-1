@@ -24,7 +24,8 @@ export default function FooterBar() {
          }
        }}
       >
-        Desenvolvido e mantido com <CoffeeIcon sx={{ verticalAlign: 'text-bottom', fontSize: 'inherit' }} /> por <a href="mailto:professor@faustocintra.com.br">Prof. Fausto Cintra</a>
+        Desenvolvido e mantido com <CoffeeIcon sx={{ verticalAlign: 'text-bottom', fontSize: 'inherit' }} /> 
+        por <a href="mailto:matheus20041126@gmail.com">Matheus Gondim Martins</a>
       </Typography>
     </Box>
   </>

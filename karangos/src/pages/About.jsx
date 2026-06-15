@@ -5,7 +5,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import foto from '../assets/foto.jpg'
+import foto from '../assets/foto.jpeg'
 
 export default function About() {
 
@@ -47,13 +47,13 @@ export default function About() {
           6. Coloque seu nome no título do cartão.
         */}
         <Typography gutterBottom variant="h5" component="div">
-          Fausto Gonçalves Cintra
+          Matheus 
         </Typography>
         {/* 
           7. No corpo do cartão, escreva um pequeno texto sobre você.
         */}
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Sou professor universitário da Fatec Franca desde 2014 e do Uni-FACEF desde 2022.
+          Sou um estudante de ADS na FATEC Franca.
         </Typography>
       </CardContent>
       <CardActions>
