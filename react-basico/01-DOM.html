@@ -6,29 +6,39 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- A div "root" será usada posteriormente pelo React -->
-     <div id="root"></div>
+    <!--A div "root" será usada posteriormente pelo React-->
+    <div id="root"></div>
 
-     <script>
+    <script>
         /*
-          DOM significa "Document Object Model".
-          O termo se refere à forma como a linguagem JavaScript
-          "enxerga" oselementos de uma página HTML.
-          Quando usamos JS para criar novos elementos em uma página,
-          alterá-los ou mesmo excluí-los, diz-se que estamos
-          "manipulando o DOM".
+        DOM significa "Document Object Model".
+        O termo se refere á forma como a linguagem JavaScript
+        "enxerga" os elementos de uma página HTML.
+        Quando usamos JS para criar novos elementos em uma página,
+        alterá-los ou mesmo exclui-los, diz-se que estamos "manipulando o DOM"
         */
-
-       //Criando um novo paragrafo na pagina usando JS
+       //criando um novo parágrafo na página usando JS
        const parag = document.createElement('p')
        parag.textContent = 'Este parágrafo foi criado com JS.'
-       
-       // Captura (acessa) o elemento correspondente à div "root"
+    
+       //captura(acessa) o elemento correspondente à div "root"
        const root = document.getElementById('root')
 
-       // Faz com que o novo parágrafo seja "adotado" pela div "root"
+       //Faz com que o novo parágrafo seja "adotado" pela div "root"
        root.appendChild(parag)
-     </script>
-     
+
+       // Criando uma nova div e ajustando os seus atributos
+       const novaDiv = document.createElement('div')
+       novaDiv.textContent = 'DIV criada com JavaScript.'
+       novaDiv.style.border = '3px dotted green'
+       novaDiv.style.background = 'limegreen'
+       novaDiv.style.padding = '10px'
+       novaDiv.style.marginTop = '50px'
+       novaDiv.style.textAlign = 'center'
+       novaDiv.id = 'div-verde'
+
+       // Fazendo com que a div "root" "adote" novaDiv como filha
+       root.appendChild(novaDiv)
+    </script>
 </body>
 </html>

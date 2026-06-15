@@ -28,39 +28,39 @@
   <script type="text/babel">
     /*
       Em React, os elementos construídos dinamicamente são chamados
-      COMPONEMTES e podem ser produzidos por meio de funções.
+      COMPONENTES e podem ser produzidos por meio de funções.
 
-      Uma função de componemte no React possui três caracteristicas:
-      1° ~> seu nome começa com LetraMaiuscula (convenção PascalCase)
-      2° ~> podem receber props como parâmetro, entre {}
-      3° ~> retornam um único elemento, qual pode ser um contêiner
+      Uma função de componente no React possui três características:
+      1ª ~> seu nome começa com LetraMaiuscula (convenção PascalCase)
+      2ª ~> podem receber props como parâmetro, entre {}
+      3ª ~> retornam um único elemento, o qual pode ser um contêiner
             para outros elementos
     */
 
     // Exemplo de função de componente em React
-    function Saudacao({nome, msg}){
-        return <div className="sauda"> {msg}, {nome}! </div>
+    function Saudacao({nome, msg}) {
+      return <div className="sauda"> {msg}, {nome}! </div>
     }
 
-    // Criando um componemte a partir de uma chamada explicita à função
-    const saudacao1 = Saudacao({ msg: 'Bom dia', nome: 'Dona Clementina' })
+    // Criando um componente a partir de uma chamada explícita à função
+    const saudacao1 = Saudacao({ msg: 'Bom dia', nome: 'Dona Clamentina' })
 
     // Criando um componente a partir da função usando sintaxe JSX
     const saudacao2 = <Saudacao nome="Seu Bita" msg="O sol já nasceu lá na fazendinha" />
-    
+
     /*
       Container em JSX
-      <></> é um pseudoelemento do React chamado FRAGMENT. ele permite agrupar
-      varios elementos sem gerar elemento HTML adicional (como uma div, por ex.)
-      no resultado renderizado 
+      <></> é um pseudoelemento do React chamado FRAGMENT. Ele permite agrupar
+      vários elementos sem gerar elemento HTML adicional (como uma div, por ex.)
+      no resultado renderizado
     */
     const container =
-     <>
+      <>
         {saudacao1}
         {saudacao2}
-     </>
-     
-    const root = ReactDOM.createRoot(document.getElementById('root')) 
+      </>
+
+    const root = ReactDOM.createRoot(document.getElementById('root'))
     root.render(container)
 
   </script>  
