@@ -1,22 +1,24 @@
-import { useState } from "react";
-//Importa o recurso de estado do React
-function Home() {
-//Cria o componente
+import React from 'react'
+import Typography from '@mui/material/Typography'
 
-  const [likes, setLikes] = useState(0);
-  //Declara a variável "likes" começando em 0
-  //"setLikes" é o botão que atualiza esse valor
+export default function About() {
+  const [info, setInfo] = React.useState('')
 
-  return (
-    <div>
-      <p>Likes: {likes}</p>
-      {/*Mostra o valor na tela */}
+  React.useEffect(() => {
+    fetch('https://api.faustocintra.com.br/sobre/1')
+      .then(response => response.json())
+      .then(data => {
+        setInfo(data.info)
+      })
+  }, [])
 
-      <button onClick={() => setLikes(likes + 1)}>Curtir</button>
-      {/*Ao clicar, soma +1 no likes */}
-    </div>
-  );
+  return <>
+    <Typography variant="h1" component="h1">
+      Sobre o Projeto Karangos
+    </Typography>
+
+    <Typography>
+      {info}
+    </Typography>
+  </>
 }
-
-export default Home;
-//Exporta para poder usar em outros arquivos

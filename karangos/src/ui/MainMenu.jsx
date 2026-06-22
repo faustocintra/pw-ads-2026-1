@@ -5,12 +5,14 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 
+
 export default function MainMenu() {
  const id = React.useId();
  const buttonId = `${id}-button`;
  const menuId = `${id}-menu`;
  const [anchorEl, setAnchorEl] = React.useState(null);
  const open = Boolean(anchorEl);
+
  const handleClick = (event) => {
    setAnchorEl(event.currentTarget);
  };
@@ -61,7 +63,13 @@ export default function MainMenu() {
        >
          Listagem de veículos
        </MenuItem>
-
+       <MenuItem
+       onClick={handleClose}
+      component={Link}
+      to="/about"
+       >
+       Sobre o Projeto Karangos
+      </MenuItem>
 
 
 
@@ -72,7 +80,6 @@ export default function MainMenu() {
        >
          Listagem de clientes
        </MenuItem>
-
 
      </Menu>
    </div>
