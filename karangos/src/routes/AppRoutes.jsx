@@ -5,6 +5,7 @@ import CarsList from '../pages/cars/CarsList'
 import CustomersList from '../pages/customers/CustomersList'
 
 import About from '../pages/About'
+import Sobre from '../pages/Sobre'
 
 export default function AppRoutes() {
  return <Routes>
@@ -17,6 +18,7 @@ export default function AppRoutes() {
     9. Crie uma rota para esse componente.
    */}
    <Route path="/about" element={ <About /> } />
+   <Route path="/sobre" element={ <Sobre /> } />
   
  </Routes>
 }

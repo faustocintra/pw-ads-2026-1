@@ -69,6 +69,14 @@ export default function MainMenu() {
           Listagem de clientes
         </MenuItem>
 
+        <MenuItem
+          onClick={handleClose}
+          component={Link}
+          to="/sobre"
+        >
+          Sobre o Projeto Karangos
+        </MenuItem>
+
         {/* 
           10. Crie uma entrada de menu que carregue a rota recém-criada.
         */}
